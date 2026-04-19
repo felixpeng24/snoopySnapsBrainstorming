@@ -1,0 +1,107 @@
+/* V5 — Living Diorama
+   Ambient scene: flying bird with music notes, peeking doghouse,
+   and a slow drift on the cream background. Booth stays still. */
+
+/* ---------- Subtle background drift ---------- */
+body {
+  background:
+    radial-gradient(ellipse 60% 50% at 20% 20%, rgba(42,32,24,0.04) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 50% at 80% 80%, rgba(42,32,24,0.04) 0%, transparent 60%),
+    var(--cream);
+  background-size: 120% 120%, 120% 120%, auto;
+  background-position: 0% 0%, 100% 100%, center;
+  animation: drift 28s ease-in-out infinite alternate;
+}
+@keyframes drift {
+  0%   { background-position: 0% 0%, 100% 100%, center; }
+  100% { background-position: 8% 6%, 92% 94%, center; }
+}
+
+/* ---------- Scene container (sits behind everything) ---------- */
+.scene {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ---------- Flying bird (Woodstock-ish) ---------- */
+.bird-orbit {
+  position: absolute;
+  top: 6%;
+  left: -60px;
+  will-change: transform;
+  animation: bird-fly 26s linear infinite;
+}
+.bird {
+  width: 44px;
+  height: auto;
+  display: block;
+  animation: bird-bob 2.2s ease-in-out infinite;
+  transform-origin: center;
+}
+.bird__wing {
+  transform-origin: 22px 22px;
+  animation: wing-flap 380ms ease-in-out infinite;
+}
+
+@keyframes bird-fly {
+  0%   { transform: translate(0, 0); }
+  25%  { transform: translate(30vw, -14px); }
+  50%  { transform: translate(55vw, 6px); }
+  75%  { transform: translate(80vw, -10px); }
+  100% { transform: translate(calc(100vw + 80px), 0); }
+}
+@keyframes bird-bob {
+  0%, 100% { translate: 0 0; }
+  50%      { translate: 0 -4px; }
+}
+@keyframes wing-flap {
+  0%, 100% { transform: scaleY(1); }
+  50%      { transform: scaleY(0.4); }
+}
+
+/* ---------- Drifting music notes ---------- */
+.note {
+  position: absolute;
+  width: 22px; height: auto;
+  opacity: 0;
+  will-change: transform, opacity;
+}
+.note--1 { top: 12%; left: 18%; animation: note-drift 5.2s ease-in-out infinite 0.4s; }
+.note--2 { top: 10%; left: 38%; animation: note-drift 4.6s ease-in-out infinite 1.6s; }
+.note--3 { top: 14%; left: 62%; animation: note-drift 5.8s ease-in-out infinite 2.8s; }
+@keyframes note-drift {
+  0%   { transform: translateY(10px) rotate(-4deg); opacity: 0; }
+  20%  { opacity: 0.85; }
+  70%  { opacity: 0.6; }
+  100% { transform: translateY(-70px) rotate(8deg); opacity: 0; }
+}
+
+/* ---------- Doghouse peeking bottom-right ---------- */
+.doghouse {
+  position: fixed;
+  bottom: -40px;
+  right: -30px;
+  width: clamp(160px, 18vw, 240px);
+  opacity: 0.75;
+  transform: rotate(-6deg);
+  filter: saturate(0.85);
+  pointer-events: none;
+}
+
+/* Make sure the main stage sits above the ambient scene */
+.stage { position: relative; z-index: 1; }
+
+@media (max-width: 720px) {
+  .doghouse { width: 130px; bottom: -20px; right: -20px; opacity: 0.6; }
+  .note { width: 16px; }
+  .bird { width: 32px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bird-orbit, .bird, .bird__wing, .note, body {
+    animation: none !important;
+  }
+  .note { opacity: 0.5; }
+}

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Snoopy Snaps — Peek-a-boo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Kalam:wght@300;400;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../shared-base.css" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body data-variant="v1">
+    <a class="back-link" href="../">← all variants</a>
+    <main class="stage">
+      <img class="corner-snoopy corner-snoopy--tr" src="../../assets/snoopy/kindpng_1388355.png" alt="" aria-hidden="true" />
+      <img class="corner-snoopy corner-snoopy--bl" src="../../assets/snoopy/kindpng_1388391.png" alt="" aria-hidden="true" />
+
+      <header class="title">
+        <h1 class="title__main">Welcome to Snoopy Snaps</h1>
+        <p class="title__sub">· · · a photobooth for every mood · · ·</p>
+      </header>
+
+      <div class="booth-wrap">
+        <svg class="booth" viewBox="0 0 1000 620" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Snoopy Snaps photobooth illustration">
+          <g class="sparkles" stroke="#2a2018" stroke-width="1.8" stroke-linecap="round">
+            <g transform="translate(70 210)"><line x1="-8" y1="0" x2="8" y2="0" /><line x1="0" y1="-8" x2="0" y2="8" /></g>
+            <g transform="translate(60 470)"><line x1="-7" y1="0" x2="7" y2="0" /><line x1="0" y1="-7" x2="0" y2="7" /></g>
+            <g transform="translate(940 250)"><line x1="-8" y1="0" x2="8" y2="0" /><line x1="0" y1="-8" x2="0" y2="8" /></g>
+            <g transform="translate(930 520)"><line x1="-7" y1="0" x2="7" y2="0" /><line x1="0" y1="-7" x2="0" y2="7" /></g>
+          </g>
+          <g class="booth-lines" stroke="#2a2018" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="140" y="110" width="740" height="450" rx="4" ry="4" />
+            <line x1="430" y1="150" x2="430" y2="520" />
+            <line x1="830" y1="110" x2="830" y2="560" />
+            <rect x="165" y="175" width="245" height="56" rx="2" />
+            <rect x="210" y="250" width="155" height="58" rx="14" />
+            <rect x="185" y="360" width="100" height="105" rx="2" />
+            <rect x="200" y="375" width="70" height="52" rx="1" />
+            <rect x="212" y="440" width="46" height="8" rx="1" />
+          </g>
+          <rect class="dark-panel" x="830" y="110" width="50" height="450" fill="#1f1712" />
+          <g class="dividers" stroke="#1f1712" stroke-linecap="round">
+            <line x1="140" y1="150" x2="830" y2="150" stroke-width="4" />
+            <line x1="140" y1="520" x2="830" y2="520" stroke-width="4" />
+            <line x1="165" y1="130" x2="195" y2="130" stroke-width="3" />
+            <line x1="775" y1="130" x2="805" y2="130" stroke-width="3" />
+            <line x1="165" y1="540" x2="195" y2="540" stroke-width="3" />
+            <line x1="775" y1="540" x2="805" y2="540" stroke-width="3" />
+          </g>
+          <g class="sign-text" fill="#2a2018" stroke="none">
+            <text x="287" y="213" text-anchor="middle" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="26" letter-spacing="2">SNOOPY SNAPS</text>
+            <text x="287" y="277" text-anchor="middle" font-family="'Kalam', cursive" font-weight="400" font-size="15">Free Online</text>
+            <text x="287" y="296" text-anchor="middle" font-family="'Kalam', cursive" font-weight="400" font-size="15">Photobooth</text>
+          </g>
+          <g class="twinkles" fill="#2a2018" stroke="none">
+            <text x="490" y="430" class="twinkle twinkle--1">✦</text>
+            <text x="555" y="405" class="twinkle twinkle--2">✦</text>
+            <text x="520" y="495" class="twinkle twinkle--3">✦</text>
+            <text x="720" y="495" class="twinkle twinkle--4">✦</text>
+            <text x="790" y="430" class="twinkle twinkle--5">✦</text>
+            <text x="760" y="375" class="twinkle twinkle--6">✦</text>
+          </g>
+        </svg>
+
+        <div class="reveal" id="reveal">
+          <img
+            class="reveal__snoopy"
+            src="../../assets/snoopy/NicePng_cool-png_347558.png"
+            alt="Cool Snoopy posing in the photobooth"
+          />
+          <div class="curtain curtain--left" aria-hidden="true">
+            <div class="curtain__rod"></div>
+          </div>
+          <div class="curtain curtain--right" aria-hidden="true">
+            <div class="curtain__rod"></div>
+          </div>
+        </div>
+
+        <button class="start-btn" id="startBtn" type="button">
+          <span class="start-btn__label">Start</span>
+          <span class="start-btn__arrow" aria-hidden="true">→</span>
+        </button>
+      </div>
+    </main>
+    <script src="./script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Snoopy Snaps — Variants</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Kalam:wght@300;400;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --cream: #f5efe2;
+        --cream-soft: #faf5e8;
+        --ink: #2a2018;
+        --ink-dark: #1f1712;
+      }
+      * { box-sizing: border-box; }
+      html, body {
+        margin: 0; padding: 0;
+        background: var(--cream); color: var(--ink);
+        font-family: 'Kalam', system-ui, sans-serif;
+        min-height: 100vh;
+      }
+      main {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 72px 32px 96px;
+      }
+      header.intro { text-align: center; margin-bottom: 48px; }
+      h1 {
+        font-family: 'Caveat', cursive;
+        font-weight: 600;
+        font-size: clamp(36px, 5vw, 56px);
+        margin: 0;
+      }
+      .sub {
+        font-family: 'Kalam', cursive;
+        font-weight: 300;
+        letter-spacing: 2px;
+        opacity: 0.75;
+        margin: 8px 0 0;
+        font-size: 15px;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 20px;
+      }
+      .card {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        padding: 24px 22px 26px;
+        background: var(--cream-soft);
+        border: 2px solid var(--ink);
+        border-radius: 14px;
+        box-shadow: 3px 3px 0 0 var(--ink);
+        color: var(--ink);
+        text-decoration: none;
+        transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+      }
+      .card:hover {
+        transform: translate(-2px, -2px);
+        box-shadow: 5px 5px 0 0 var(--ink);
+        background: #fff;
+      }
+      .card:active {
+        transform: translate(1px, 1px);
+        box-shadow: 1px 1px 0 0 var(--ink);
+      }
+      .card__num {
+        font-family: 'Space Grotesk', sans-serif;
+        font-weight: 700;
+        font-size: 13px;
+        letter-spacing: 3px;
+        opacity: 0.6;
+      }
+      .card__name {
+        font-family: 'Caveat', cursive;
+        font-weight: 600;
+        font-size: 30px;
+        line-height: 1;
+        margin: 0;
+      }
+      .card__hook {
+        font-family: 'Kalam', cursive;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 1.45;
+        opacity: 0.82;
+        margin: 0;
+      }
+      .card__tag {
+        margin-top: auto;
+        font-family: 'Space Grotesk', sans-serif;
+        font-weight: 600;
+        font-size: 11px;
+        letter-spacing: 2px;
+        opacity: 0.55;
+        text-transform: uppercase;
+      }
+      footer {
+        text-align: center;
+        margin-top: 56px;
+        font-family: 'Kalam', cursive;
+        font-size: 13px;
+        opacity: 0.5;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header class="intro">
+        <h1>Snoopy Snaps — five variants</h1>
+        <p class="sub">· · · pick a flavor and see it live · · ·</p>
+      </header>
+
+      <section class="grid">
+        <a class="card" href="./v1-peekaboo/">
+          <span class="card__num">VARIANT 01</span>
+          <h2 class="card__name">Peek-a-boo Teaser</h2>
+          <p class="card__hook">Curtains idle with a soft breath. Every few seconds, Snoopy's face pokes through the gap — the Start button pulses as he peeks.</p>
+          <span class="card__tag">Playful · Alive</span>
+        </a>
+
+        <a class="card" href="./v2-photostrip/">
+          <span class="card__num">VARIANT 02</span>
+          <h2 class="card__name">Photo-Strip Capture</h2>
+          <p class="card__hook">Press Start → curtains open, three flashes, Snoopy swaps pose each flash, then a polaroid strip slides out of the coin slot.</p>
+          <span class="card__tag">On-theme · Satisfying</span>
+        </a>
+
+        <a class="card" href="./v3-moodpicker/">
+          <span class="card__num">VARIANT 03</span>
+          <h2 class="card__name">Mood Picker</h2>
+          <p class="card__hook">Four mood chips (Cool, Sleepy, Party, Classic) recolor the curtain and swap which Snoopy appears behind it. One booth, four moods.</p>
+          <span class="card__tag">Replayable · Personal</span>
+        </a>
+
+        <a class="card" href="./v4-gang/">
+          <span class="card__num">VARIANT 04</span>
+          <h2 class="card__name">Peanuts Gang Rotation</h2>
+          <p class="card__hook">Every press reveals a different friend — Cool Snoopy, Sleepy Snoopy, Classic Snoopy, Woodstock. Meet all four for a tiny surprise.</p>
+          <span class="card__tag">Collectible · Cozy</span>
+        </a>
+
+        <a class="card" href="./v5-diorama/">
+          <span class="card__num">VARIANT 05</span>
+          <h2 class="card__name">Living Diorama</h2>
+          <p class="card__hook">The booth sits in a quiet world. Woodstock flutters overhead trailing music notes, a doghouse peeks in from the corner, the background drifts slowly.</p>
+          <span class="card__tag">Ambient · Premium</span>
+        </a>
+      </section>
+
+      <footer>made with pencil-lines, cream, and one very cool dog.</footer>
+    </main>
+  </body>
+</html>

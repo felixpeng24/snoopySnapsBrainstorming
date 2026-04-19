@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Snoopy Snaps</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;700&family=Short+Stack&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="page-shell">
+      <img
+        class="corner-friend corner-friend-top"
+        src="./assets/snoopy/kindpng_1388355.png"
+        alt="Snoopy peeking from the top right"
+      />
+      <img
+        class="corner-friend corner-friend-bottom"
+        src="./assets/snoopy/kindpng_1388391.png"
+        alt="Snoopy waving from the bottom left"
+      />
+
+      <section class="hero" aria-labelledby="hero-title">
+        <header class="hero-copy">
+          <p class="hero-kicker">. . . welcome to the booth . . .</p>
+          <h1 id="hero-title">Welcome to Snoopy Snaps</h1>
+          <p class="hero-subtitle">a photobooth for every mood</p>
+        </header>
+
+        <div class="booth-stage">
+          <div class="plus plus-left-top" aria-hidden="true">+</div>
+          <div class="plus plus-left-bottom" aria-hidden="true">+</div>
+          <div class="plus plus-right-top" aria-hidden="true">+</div>
+          <div class="plus plus-right-bottom" aria-hidden="true">+</div>
+
+          <section class="booth" aria-label="Snoopy Snaps photobooth">
+            <div class="booth-roof">
+              <span class="roof-rivet roof-rivet-left"></span>
+              <span class="roof-rivet roof-rivet-right"></span>
+            </div>
+
+            <div class="panel panel-sign">
+              <div class="plate plate-title">
+                <p class="plate-eyebrow">SNOOPY</p>
+                <p class="plate-title-main">SNAPS</p>
+              </div>
+
+              <div class="plate plate-message" id="booth-message" aria-live="polite">
+                Tap start and let the curtain slide.
+              </div>
+            </div>
+
+            <div class="panel panel-controls">
+              <div class="camera-module" aria-hidden="true">
+                <span class="lens lens-main"></span>
+                <span class="lens lens-flash"></span>
+              </div>
+
+              <button class="start-button" id="start-button" type="button">
+                <span>Start</span>
+                <span aria-hidden="true">→</span>
+              </button>
+
+              <div class="photo-shell" aria-hidden="true">
+                <img
+                  src="./assets/snoopy/NicePng_cool-png_347558.png"
+                  alt=""
+                  class="photo-snoopy"
+                />
+              </div>
+            </div>
+
+            <div class="panel panel-curtain">
+              <div class="curtain curtain-left"></div>
+              <div class="curtain curtain-right"></div>
+
+              <div class="booth-reveal">
+                <div class="reveal-floor"></div>
+                <img
+                  class="doghouse"
+                  src="./assets/snoopy/NicePng_dog-house-png_533465.png"
+                  alt="Snoopy doghouse"
+                />
+                <img
+                  class="sleeping-snoopy"
+                  src="./assets/snoopy/trimmed/sleeping-snoopy.png"
+                  alt="Sleeping Snoopy"
+                />
+                <div class="twinkles" aria-hidden="true">
+                  <span class="twinkle twinkle-1">✦</span>
+                  <span class="twinkle twinkle-2">✦</span>
+                  <span class="twinkle twinkle-3">✦</span>
+                  <span class="twinkle twinkle-4">✦</span>
+                  <span class="twinkle twinkle-5">✦</span>
+                  <span class="twinkle twinkle-6">✦</span>
+                </div>
+              </div>
+            </div>
+
+            <aside class="panel panel-strip" aria-label="Mood grades">
+              <div class="strip-card">
+                <span class="strip-grade">A+</span>
+                <p>Sleepy</p>
+              </div>
+              <div class="strip-card">
+                <span class="strip-grade">A</span>
+                <p>Smiley</p>
+              </div>
+              <div class="strip-card">
+                <span class="strip-grade">B+</span>
+                <p>Cool</p>
+              </div>
+            </aside>
+          </section>
+        </div>
+      </section>
+
+      <section class="mood-board" id="mood-board" aria-labelledby="mood-title">
+        <div class="board-card">
+          <p class="board-kicker">newbies welcome</p>
+          <h2 id="mood-title">Choose your first booth vibe</h2>
+          <div class="mood-grid">
+            <article class="mood-option">
+              <span class="mood-badge">01</span>
+              <h3>Nap Mode</h3>
+              <p>Soft flash, sleepy grin, and a slow curtain open.</p>
+            </article>
+            <article class="mood-option">
+              <span class="mood-badge">02</span>
+              <h3>Cool Mode</h3>
+              <p>Sharper contrast, playful pose, and brighter stars.</p>
+            </article>
+            <article class="mood-option">
+              <span class="mood-badge">03</span>
+              <h3>Classic Mode</h3>
+              <p>Simple monochrome framing inspired by your references.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

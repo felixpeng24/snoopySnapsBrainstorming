@@ -1,0 +1,103 @@
+/* V2 — Photo-Strip Capture
+   On Start: curtains open, 3 flashes with pose swaps, then a polaroid
+   slides out of the coin slot. No real camera — purely visual. */
+
+/* Each pose fills the reveal area; only active one is visible */
+.pose {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%) scale(0.95);
+  height: 92%;
+  width: auto;
+  opacity: 0;
+  transition: opacity 180ms ease, transform 300ms ease;
+  pointer-events: none;
+}
+.pose--active {
+  opacity: 1;
+  transform: translateX(-50%) scale(1);
+}
+
+/* White flash overlay fired on each "shot" */
+.flash {
+  position: absolute;
+  inset: 0;
+  background: #fff;
+  opacity: 0;
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+.flash.firing {
+  animation: flash-fire 360ms ease-out;
+}
+@keyframes flash-fire {
+  0%   { opacity: 0; }
+  20%  { opacity: 0.95; }
+  100% { opacity: 0; }
+}
+
+/* ---------- Polaroid photo strip ---------- */
+.polaroid {
+  position: absolute;
+  /* Coin slot center is at ~23.5% left, ~71% top of booth-wrap.
+     We start the polaroid hidden behind the slot and drop it down. */
+  left: 16%;
+  top: 73.5%;
+  width: 13%;
+  min-width: 96px;
+  padding: 8px 8px 12px;
+  background: #fcf7ea;
+  border: 1.5px solid var(--ink);
+  border-radius: 3px;
+  box-shadow: 2px 3px 0 0 var(--ink), 0 1px 0 rgba(0,0,0,0.08) inset;
+  transform-origin: top center;
+  transform: translateY(-28%) rotate(-6deg) scale(0.9);
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity 400ms ease 100ms,
+    transform 900ms cubic-bezier(0.25, 1.4, 0.35, 1) 100ms;
+  z-index: 4;
+}
+body.printed .polaroid {
+  opacity: 1;
+  transform: translateY(30%) rotate(-4deg) scale(1);
+}
+
+.polaroid__shots {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.polaroid__shot {
+  background: #f0e8d4;
+  border: 1px solid rgba(42,32,24,0.3);
+  aspect-ratio: 1.2 / 1;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+.polaroid__shot img {
+  max-height: 86%;
+  max-width: 86%;
+  object-fit: contain;
+}
+.polaroid__caption {
+  margin-top: 6px;
+  font-family: 'Caveat', cursive;
+  font-size: 12px;
+  text-align: center;
+  letter-spacing: 1px;
+  color: var(--ink);
+}
+
+/* Disable idle hover on the button during the sequence */
+body.snapping .start-btn {
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pose, .flash, .polaroid { transition: none !important; animation: none !important; }
+}

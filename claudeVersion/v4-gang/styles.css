@@ -1,0 +1,118 @@
+/* V4 — Peanuts Gang Rotation
+   Every Start press reveals a different friend until all 4 are met. */
+
+/* ---------- Friends behind the curtain ---------- */
+.friend {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px) scale(0.9);
+  height: 92%;
+  width: auto;
+  opacity: 0;
+  transition: opacity 400ms ease, transform 600ms cubic-bezier(0.22, 1.2, 0.36, 1);
+  pointer-events: none;
+}
+
+.friend.is-current {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0) scale(1);
+  transition-delay: 350ms;
+}
+
+/* Woodstock is small — scale him up but keep a smaller ceiling */
+.friend--bird {
+  height: 70%;
+  bottom: 8%;
+}
+
+/* ---------- Counter below the booth ---------- */
+.friend-counter {
+  text-align: center;
+  margin: 24px auto 0;
+  font-family: 'Kalam', cursive;
+  font-size: 16px;
+  color: var(--ink);
+  opacity: 0.85;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+  justify-content: center;
+  letter-spacing: 0.5px;
+}
+.friend-counter__count {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 1;
+  padding: 2px 8px;
+  border: 1.5px solid var(--ink);
+  border-radius: 6px;
+  background: var(--cream-soft);
+  display: inline-block;
+  min-width: 18px;
+  text-align: center;
+  transition: transform 240ms ease, background 240ms ease;
+}
+body.bumped .friend-counter__count {
+  animation: count-bump 420ms ease;
+}
+@keyframes count-bump {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.25); background: #fff4c2; }
+  100% { transform: scale(1); }
+}
+.friend-counter__star {
+  display: inline-block;
+  margin-left: 4px;
+  font-size: 14px;
+  animation: spin 6s linear infinite;
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+body.complete .friend-counter::before {
+  content: "✦  the whole gang — nicely done. ";
+  font-family: 'Caveat', cursive;
+  font-size: 18px;
+  margin-right: 4px;
+  display: inline-block;
+  color: var(--ink);
+}
+
+/* ---------- Confetti burst on completion ---------- */
+.confetti {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 5;
+}
+.confetti__piece {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 14px;
+  color: var(--ink);
+  will-change: transform, opacity;
+  animation: burst 1200ms ease-out forwards;
+}
+@keyframes burst {
+  0%   { transform: translate(-50%, -50%) scale(0.3); opacity: 0; }
+  15%  { opacity: 1; }
+  100% { transform:
+           translate(calc(-50% + var(--dx)), calc(-50% + var(--dy)))
+           scale(1) rotate(var(--rot));
+         opacity: 0;
+  }
+}
+
+/* Start button label changes when gang is complete */
+body.complete .start-btn__label::after { content: " again"; }
+
+@media (prefers-reduced-motion: reduce) {
+  .friend, .confetti__piece, .friend-counter__star,
+  .friend-counter__count { animation: none !important; transition: none !important; }
+}
