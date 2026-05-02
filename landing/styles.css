@@ -1,0 +1,114 @@
+/* ── Landing page ─────────────────────────────────────────── */
+
+/* decorative elements scattered around the booth */
+.deco {
+  position: fixed;
+  pointer-events: none;
+  user-select: none;
+}
+
+.deco.plus {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 600;
+  font-size: clamp(18px, 2vw, 28px);
+  color: var(--gold);
+  opacity: 0.9;
+}
+
+.deco.paw {
+  font-size: clamp(20px, 2.5vw, 34px);
+  opacity: 0.55;
+}
+
+/* ── Page layout ──────────────────────────────────────────── */
+.page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 48px 24px 0;
+  background: #f2ece1;
+}
+
+/* ── Title ────────────────────────────────────────────────── */
+.title {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.title__main {
+  margin: 0;
+  font-family: 'Fredoka One', cursive;
+  font-weight: 400;
+  font-size: clamp(32px, 5vw, 58px);
+  color: var(--ink);
+  letter-spacing: 0.3px;
+  line-height: 1.1;
+}
+
+.title__sub {
+  margin: 8px 0 0;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 400;
+  font-size: clamp(14px, 1.6vw, 20px);
+  color: var(--ink-mid);
+  letter-spacing: 0.3px;
+}
+
+/* ── Booth ────────────────────────────────────────────────── */
+.booth-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 680px;
+  /* matches booth.png native ratio: 1475 × 1213 */
+  aspect-ratio: 1475 / 1213;
+}
+
+.booth-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  user-select: none;
+}
+
+/* transparent overlay button covering the drawn "Start →" in the PNG */
+.start-btn {
+  position: absolute;
+  /* tuned to the drawn button position in booth.png */
+  left:   9%;
+  top:    70%;
+  width:  30%;
+  height: 14%;
+
+  background: transparent;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: background 150ms ease;
+}
+
+.start-btn:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.start-btn:active {
+  background: rgba(0, 0, 0, 0.08);
+}
+
+.start-btn:focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: 2px;
+}
+
+/* ── Footer ───────────────────────────────────────────────── */
+.footer {
+  height: 220px;
+  background: #ede5d2;
+}
+
+/* ── Responsive ───────────────────────────────────────────── */
+@media (max-width: 500px) {
+  .page { padding: 32px 16px 24px; }
+  .deco { display: none; }
+}

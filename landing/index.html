@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CuteSnaps</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../shared.css" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+
+    <!-- decorative + signs -->
+    <span class="deco plus" style="left:9%;  top:28%">+</span>
+    <span class="deco plus" style="left:6%;  top:55%">+</span>
+    <span class="deco plus" style="left:14%; top:72%">+</span>
+    <span class="deco plus" style="right:8%; top:32%">+</span>
+    <span class="deco plus" style="right:5%; top:58%">+</span>
+
+    <!-- decorative paw prints -->
+    <span class="deco paw" style="left:7%;  top:62%">🐾</span>
+    <span class="deco paw" style="right:9%; top:50%">🐾</span>
+
+    <main class="page">
+      <header class="title">
+        <h1 class="title__main">Welcome to CuteSnaps!</h1>
+        <p class="title__sub">... the best photobooth for furry friends</p>
+      </header>
+
+      <div class="booth-wrap">
+        <img
+          class="booth-img"
+          src="../assets/snoopy/booth.png"
+          alt="CuteSnaps photobooth"
+          draggable="false"
+        />
+        <!-- transparent overlay covering the drawn Start button in the PNG -->
+        <button class="start-btn" id="startBtn" type="button" aria-label="Start">
+        </button>
+      </div>
+    </main>
+
+    <footer class="footer"></footer>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
